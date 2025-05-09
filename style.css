@@ -1,0 +1,132 @@
+/* General Styling */
+body {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #444;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Game Container */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Board Design */
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    gap: 2px;
+    width: 620px;
+    height: 620px;
+    background-image: url('./board-background.avif'); 
+    background-size: cover;
+    border: 5px solid black;
+    position: relative;
+}
+
+/* Each Cell */
+.cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Snakes and Ladders */
+.snake {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('snake.png'); /* Replace with your snake image */
+    background-size: cover;
+    animation: slither 1s infinite alternate;
+}
+
+.ladder {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-image: url('./ladder.jpg'); /* Replace with your ladder image */
+    background-size: cover;
+}
+
+/* Player Design */
+.player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Player Colors */
+.player:nth-child(1) { background-color: red; }
+.player:nth-child(2) { background-color: blue; }
+.player:nth-child(3) { background-color: green; }
+.player:nth-child(4) { background-color: purple; }
+
+/* Dice Roll Animation */
+@keyframes rollDice {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #c70039;
+}
+
+/* Dice Result */
+#diceResult {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    animation: rollDice 1s ease-in-out;
+}
+
+/* Turn Indicator */
+#turnIndicator {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Winner Message */
+#winnerMessage {
+    font-size: 2rem;
+    font-weight: bold;
+    color: green;
+    margin-top: 20px;
+}
